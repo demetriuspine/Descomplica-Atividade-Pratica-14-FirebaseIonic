@@ -1,0 +1,7 @@
+{
+  "name": "estoque-descomplica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
