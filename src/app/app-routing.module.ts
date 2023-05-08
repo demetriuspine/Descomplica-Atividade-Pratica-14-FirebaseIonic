@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'modal',
-    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+    path: 'save',
+    loadChildren: () => import('./saveProduct/saveProduct.module').then( m => m.ModalPageModule)
   },
 ];
 
