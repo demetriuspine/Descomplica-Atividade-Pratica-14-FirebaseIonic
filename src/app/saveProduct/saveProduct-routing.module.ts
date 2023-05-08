@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ModalPage } from './modal.page';
+import { SaveProductPage } from './saveProduct.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ModalPage
+    component: SaveProductPage
   }
 ];
 
