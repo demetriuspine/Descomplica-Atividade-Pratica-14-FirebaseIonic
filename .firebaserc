@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "stockdescomplica": {
+      "hosting": {
+        "app": [
+          "stockdescomplica"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "stockdescomplica"
+  }
+}
