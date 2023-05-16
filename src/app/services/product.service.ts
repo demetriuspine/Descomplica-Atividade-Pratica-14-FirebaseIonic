@@ -37,7 +37,7 @@ export class ProductService {
   }
 
   // Update
-  updateProduct(id: any, apt: IProduct) {
+  updateProduct(id: string, apt: IProduct) {
     const productRef: AngularFireObject<IProduct> = this.db.object(`${this.dbPath}/${id}`);
     return productRef.update({
       name: apt.name,
