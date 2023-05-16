@@ -26,19 +26,19 @@ export class ProductService {
 
   // Get Single
   getProduct(id: string): Observable<IProduct | null> {
-    const productRef: AngularFireObject<IProduct> = this.db.object('/products/' + id);
+    const productRef: AngularFireObject<IProduct> = this.db.object(`${this.dbPath}/${id}`);
     return productRef.valueChanges();
   }
 
   // Get List
   getProductList() {
-    this.productListRef = this.db.list<IProduct>('/products');
+    this.productListRef = this.db.list<IProduct>(this.dbPath);
     return this.productListRef.snapshotChanges();
   }
 
   // Update
   updateProduct(id: any, apt: IProduct) {
-    const productRef: AngularFireObject<IProduct> = this.db.object('/products/' + id);
+    const productRef: AngularFireObject<IProduct> = this.db.object(`${this.dbPath}/${id}`);
     return productRef.update({
       name: apt.name,
       description: apt.description,
@@ -48,7 +48,7 @@ export class ProductService {
 
   // Delete
   deleteProduct(id: string) {
-    const productRef: AngularFireObject<IProduct> = this.db.object('/products/' + id);
+    const productRef: AngularFireObject<IProduct> = this.db.object(`${this.dbPath}/${id}`);
     productRef.remove();
   }
 }
