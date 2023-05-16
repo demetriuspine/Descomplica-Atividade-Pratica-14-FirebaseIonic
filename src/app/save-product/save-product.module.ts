@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModalPageRoutingModule } from './saveProduct-routing.module';
+import { ModalPageRoutingModule } from './save-product-routing.module';
 
-import { SaveProductPage } from './saveProduct.page';
+import { SaveProductPage } from './save-product.page';
 import { SideMenuModule } from '../side-menu/side-menu.module';
 
 @NgModule({

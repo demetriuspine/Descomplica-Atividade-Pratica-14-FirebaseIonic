@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'save',
-    loadChildren: () => import('./save-product/saveProduct.module').then(m => m.ModalPageModule)
+    loadChildren: () => import('./save-product/save-product.module').then(m => m.ModalPageModule)
   },
   {
     path: 'products',

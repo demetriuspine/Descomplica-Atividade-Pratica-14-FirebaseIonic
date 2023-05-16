@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './saveProduct.page.html',
-  styleUrls: ['./saveProduct.page.scss'],
+  templateUrl: './save-product.page.html',
+  styleUrls: ['./save-product.page.scss'],
 })
 export class SaveProductPage implements OnInit {
 
