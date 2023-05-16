@@ -13,14 +13,16 @@
 
   <ng-template #contentTemplate>
     <ng-container *ngIf="product; else notFoundTemplate">
-      <div>
-        <h2>{{ product.name }}</h2>
-        <p>Description: {{ product.description }}</p>
-        <p>Price: {{ product.price }}</p>
+      <section class="product-container">
+        <h2 class="product-title">{{ product.name }}</h2>
+        <p class="product-description">Description: {{ product.description }}</p>
+        <p class="product-price">Price: {{ product.price }}</p>
 
-        <ion-button color="primary">Update</ion-button>
-        <ion-button color="danger">Delete</ion-button>
-      </div>
+        <div>
+          <ion-button class="product-button" color="primary">Update</ion-button>
+          <ion-button class="product-button" color="danger">Delete</ion-button>
+        </div>
+      </section>
     </ng-container>
 
     <ng-template #notFoundTemplate>

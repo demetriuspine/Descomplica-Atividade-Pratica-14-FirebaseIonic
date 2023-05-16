@@ -3,3 +3,33 @@
   flex-direction: column;
   align-items: center;
 }
+
+.product-container {
+  padding: 16px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.product-description {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.product-button {
+  margin-right: 8px;
+}
