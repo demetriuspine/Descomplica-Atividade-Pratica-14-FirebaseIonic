@@ -8,6 +8,7 @@ import { ProductDetailPageRoutingModule } from './product-detail-routing.module'
 
 import { ProductDetailPage } from './product-detail.page';
 import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
+import { SideMenuModule } from '../side-menu/side-menu.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-m
     FormsModule,
     IonicModule,
     ProductDetailPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SideMenuModule
   ],
   declarations: [ProductDetailPage, ConfirmationModalComponent],
   entryComponents: [ConfirmationModalComponent]
