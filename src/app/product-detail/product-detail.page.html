@@ -19,10 +19,35 @@
         <p class="product-price">Price: {{ product.price }}</p>
 
         <div>
-          <ion-button class="product-button" color="primary">Update</ion-button>
+          <ion-button class="product-button" color="primary" (click)="isUpdating = true">Update</ion-button>
           <ion-button class="product-button" color="danger">Delete</ion-button>
         </div>
       </section>
+
+      <ion-card *ngIf="isUpdating">
+        <ion-card-header>
+          <ion-card-title>Update Product</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Description</ion-label>
+              <ion-input type="text" formControlName="description"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Price</ion-label>
+              <ion-input type="text" formControlName="price"></ion-input>
+            </ion-item>
+
+            <ion-button shape="full" color="danger" (click)="isUpdating = false">Abort</ion-button>
+            <ion-button type="submit" color="primary" shape="full" expand="block">Save product</ion-button>
+          </form>
+        </ion-card-content>
+      </ion-card>
     </ng-container>
 
     <ng-template #notFoundTemplate>
