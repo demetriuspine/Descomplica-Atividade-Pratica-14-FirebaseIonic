@@ -8,14 +8,21 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./product-detail.page.scss'],
 })
 export class ProductDetailPage implements OnInit {
-  product: any; // Altere para o tipo correto do seu objeto de produto
+  isLoading = true;
+  productFound = false;
+  product: any;
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService) { }
 
   getProductDetails(productId: string): void {
     this.productService.getProduct(productId).subscribe(product => {
-      this.product = product;
+      this.isLoading = false;
+      if (product) {
+        this.product = product;
+      } else {
+        this.productFound = true;
+      }
     });
   }
 
