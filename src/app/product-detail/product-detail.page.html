@@ -1,13 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>productDetail</ion-title>
+    <ion-title>Booking</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div *ngIf="product">
+  <section *ngIf="product; else loadingTemplate">
     <h2>{{ product.name }}</h2>
     <p>Description: {{ product.description }}</p>
     <p>Price: {{ product.price }}</p>
-  </div>
+
+    <ion-button color="primary">Update</ion-button>
+    <ion-button color="danger">Delete</ion-button>
+  </section>
+
+  <ng-template #loadingTemplate>
+    <section class="loading-message">
+      <ion-spinner></ion-spinner>
+    </section>
+  </ng-template>
 </ion-content>
