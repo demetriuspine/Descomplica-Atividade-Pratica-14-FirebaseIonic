@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,11 +20,13 @@ export class ProductDetailPage implements OnInit {
     price: ['', Validators.required]
   });
   isUpdating = false;
+  showConfirmationModal = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
-    public fb: FormBuilder) { }
+    public fb: FormBuilder,
+    private modalController: ModalController) { }
 
   getProductDetails(productId: string): void {
     this.productService.getProduct(productId).subscribe(product => {
@@ -45,6 +49,25 @@ export class ProductDetailPage implements OnInit {
       .catch(error => {
         console.error('Error updating product:', error);
       });
+  }
+
+  async openConfirmationModal() {
+    const productId = this.route.snapshot.params['id'];
+    const modal = await this.modalController.create({
+      component: ConfirmationModalComponent,
+      componentProps: {
+        productId: this.product.id
+      }
+    });
+
+    modal.onDidDismiss().then((data) => {
+      if (data && data.data === 'delete') {
+        this.productService.deleteProduct(productId);
+        this.router.navigateByUrl('/home');
+      }
+    });
+
+    return await modal.present();
   }
 
   ngOnInit() {

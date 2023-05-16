@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProductDetailPageRoutingModule } from './product-detail-routing.module';
 
 import { ProductDetailPage } from './product-detail.page';
+import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ProductDetailPage } from './product-detail.page';
     ProductDetailPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ProductDetailPage]
+  declarations: [ProductDetailPage, ConfirmationModalComponent],
+  entryComponents: [ConfirmationModalComponent]
 })
-export class ProductDetailPageModule {}
+export class ProductDetailPageModule { }
