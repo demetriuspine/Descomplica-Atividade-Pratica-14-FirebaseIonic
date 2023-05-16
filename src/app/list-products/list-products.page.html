@@ -1,3 +1,9 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
   <section *ngIf="(products | async) as productSnapshots; else loadingTemplate">
     <ion-card *ngFor="let productSnapshot of productSnapshots" (click)="navigateToProduct(productSnapshot)">
