@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <section *ngIf="(products | async) as productSnapshots; else loadingTemplate">
+    <ion-card *ngFor="let productSnapshot of productSnapshots" (click)="navigateToProduct(productSnapshot)">
+      <ion-card-header>
+        <ion-card-title>{{ productSnapshot.payload.val()!.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Description: {{ productSnapshot.payload.val()!.description }}</p>
+        <p>Price: {{ productSnapshot.payload.val()!.price }}</p>
+      </ion-card-content>
+    </ion-card>
+  </section>
+
+  <ng-template #loadingTemplate>
+    <div class="loading-message">
+      <ion-spinner></ion-spinner>
+    </div>
+  </ng-template>
+</ion-content>
